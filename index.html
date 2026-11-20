@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mia González — portfolio</title>
+  <meta name="description" content="Portfolio de Mia González: diseño, 3D, contenido, oratoria y organización. Buenos Aires.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>/* ?raf: para probar con la pestaña oculta */ if (location.search.includes('raf')) window.requestAnimationFrame = (f) => setTimeout(() => f(performance.now()), 16);</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+  <!-- arranque -->
+  <div class="boot" aria-hidden="true">
+    <div class="crt">
+      <span class="bt bt-tl">MIA GONZALEZ</span><span class="bt bt-tr">BUENOS AIRES</span>
+      <span class="bt bt-bl">PORTFOLIO</span><span class="bt bt-br">ESCRITORIO</span>
+      <svg class="boot-logo" viewBox="0 0 40 40"><use href="#logo"/></svg>
+      <div class="boot-count"><i class="boot-line"></i><b class="boot-num">000</b><em>%</em></div>
+      <p class="boot-msg">CARGANDO</p>
+      <button class="boot-enter" type="button">CLICK PARA ENTRAR</button>
+      <button class="boot-quiet" type="button">ENTRAR SIN MUSICA</button>
+      <div class="boot-dots"><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+  <!-- barra de menú -->
+  <header class="menubar">
+    <div class="mb-left">
+      <button class="mb-logo" data-menu="apple" aria-label="Menú"><svg viewBox="0 0 40 40"><use href="#logo"/></svg></button>
+      <b class="mb-app">Finder</b>
+      <button data-menu="file" class="mb-item"></button>
+      <button data-menu="go" class="mb-item"></button>
+      <button data-menu="window" class="mb-item hide-sm"></button>
+      <button data-menu="help" class="mb-item hide-sm"></button>
+    </div>
+    <div class="mb-right">
+      <span class="lang" role="group" aria-label="Idioma"><button data-l="es">ES</button><button data-l="en">EN</button></span>
+      <svg class="mb-ico hide-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="19.5" r="1.5" fill="currentColor"/></svg>
+      <svg class="mb-ico mb-batt hide-sm" viewBox="0 0 30 14" aria-hidden="true"><rect x="1" y="1" width="25" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".45"/><rect x="3" y="3" width="17" height="8" rx="2" fill="currentColor"/><path d="M28 5v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".45"/></svg>
+      <time class="mb-clock"></time>
+    </div>
+    <div class="dropdown" hidden></div>
+  </header>
+
+  <!-- escritorio -->
+  <main class="desktop" id="desktop">
+    <div class="hero">
+      <h1 class="hero-title"><span class="hero-script"></span><span class="hero-big"></span></h1>
+      <div class="hero-folder" title="sobre mí"><svg viewBox="0 0 120 90"><use href="#folder"/></svg></div>
+    </div>
+    <div class="icons"></div>
+    <div class="lasso" hidden></div>
+    <p class="hint"></p>
+  </main>
+
+  <div class="windows"></div>
+
+  <!-- dock -->
+  <nav class="dock" aria-label="Dock"><div class="dock-inner"></div></nav>
+
+  <div class="toast" hidden></div>
+  <div class="off" hidden><p class="off-big"></p><p class="off-sub"></p></div>
+
+  <!-- símbolos -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="fBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6db7ec"/><stop offset="1" stop-color="#4c9ad8"/></linearGradient>
+      <linearGradient id="fFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ccbf5"/><stop offset="1" stop-color="#5eaae4"/></linearGradient>
+      <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .16 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    </defs>
+    <symbol id="folder" viewBox="0 0 120 90">
+      <path d="M8 10a6 6 0 0 1 6-6h28a6 6 0 0 1 4.6 2.2L52 12h54a6 6 0 0 1 6 6v58a8 8 0 0 1-8 8H16a8 8 0 0 1-8-8z" fill="url(#fBack)"/>
+      <rect x="10" y="17" width="100" height="10" rx="2" fill="#fff" opacity=".85"/>
+      <path d="M6 28a6 6 0 0 1 6-6h96a6 6 0 0 1 6 6v48a10 10 0 0 1-10 10H16A10 10 0 0 1 6 76z" fill="url(#fFront)"/>
+      <path d="M6 28a6 6 0 0 1 6-6h96a6 6 0 0 1 6 6v48a10 10 0 0 1-10 10H16A10 10 0 0 1 6 76z" filter="url(#grain)"/>
+      <path d="M12 23.5h96" stroke="#fff" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="logo" viewBox="0 0 40 40">
+      <g fill="currentColor"><circle cx="20" cy="10" r="7"/><circle cx="29.5" cy="17" r="7"/><circle cx="26" cy="28" r="7"/><circle cx="14" cy="28" r="7"/><circle cx="10.5" cy="17" r="7"/></g>
+      <circle cx="20" cy="20" r="4.2" fill="var(--logo-center, #f4ede3)"/>
+    </symbol>
+  </svg>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
